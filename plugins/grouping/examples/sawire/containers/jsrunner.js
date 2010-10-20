@@ -5,9 +5,8 @@
  * @constructor
  */
 sawire.jsRunner = function(options, layer) {
-         
    sawire.jsRunner.superclass.constructor.call(this, options, layer);
-   this.buildTextArea(options.codeText || "function(in1, in2) {\n\n  return 0;\n}");
+   this.buildTextArea(options.codeText || "function(in1, in2) {\n  return 0;\n}");
    
    this.createTerminals();
    
@@ -28,7 +27,7 @@ YAHOO.extend(sawire.jsRunner, WireIt.Container, {
     */
    buildTextArea: function(codeText) {
 
-      this.textarea = WireIt.cn('textarea', null, {width: (this.bodyEl.clientWidth-20)+"px", height: (this.bodyEl.clientHeight-20)+"px", resize: "none", border: "0", padding: "5px"}, codeText);
+      this.textarea = WireIt.cn('textarea', null, {width: (this.bodyEl.clientWidth-20)+"px", height: (this.bodyEl.clientHeight-20)+"px"}, codeText);
       this.setBody(this.textarea);
 
       YAHOO.util.Event.addListener(this.textarea, 'change', this.createTerminals, this, true);

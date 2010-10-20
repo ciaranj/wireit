@@ -2,6 +2,10 @@ div.WireIt-Container {
 	width: 300px; /* Prevent the modules from scratching on the right */
 }
 
+div.WireIt-Layer {
+  background-image: url("assets/gpddf.gif")
+}
+
 div.WireIt-InOutContainer {	
 	width: 150px;
 }
@@ -36,18 +40,25 @@ div.Bubble div.body {
 	top: -3px;
 }
 
-div.WireIt-Container div.body {
+div.WiringEditor-module-jsBox div.body {
     background-color: #EDF5FF;
 }
 
-div.WireIt-Container div.body.js-execution-starting {
+div.WiringEditor-module-jsBox div.body.js-execution-starting {
     background-color: #FFFF99;
 }
 
-div.WireIt-Container div.body.js-execution-ok {
+div.WiringEditor-module-jsBox div.body.js-execution-ok {
     background-color: #66FF99;
 }
 
-div.WireIt-Container div.body.js-execution-failed {
+div.WiringEditor-module-jsBox div.body.js-execution-failed {
     background-color: #FF3333;
+}
+
+div.WiringEditor-module-jsBox div.body textarea {
+    font-family: "Courier";
+    resize: none;
+    border: 0;
+    padding: 5px;  
 }
