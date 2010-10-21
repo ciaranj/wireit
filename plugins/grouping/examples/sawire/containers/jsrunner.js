@@ -19,19 +19,28 @@ sawire.jsRunner = function(options, layer) {
 };
 
 YAHOO.extend(sawire.jsRunner, WireIt.Container, {
-   
    /**
     * Create the textarea for the javascript code
     * @method buildTextArea
     * @param {String} codeText
     */
    buildTextArea: function(codeText) {
+     var region = YAHOO.util.Dom.getRegion( this.el );
+     var totalHeight = region.height;
+     var totalWidth = region.width;
+     if( this.ddHandle ) {
+       region = YAHOO.util.Dom.getRegion( this.ddHandle );
+       totalHeight -= ( region.bottom - region.top );
+     }
+     region = YAHOO.util.Dom.getRegion( this.bodyEl );
+     totalHeight -= region.height;
+     totalHeight -= 10; //The textArea willl have a 5 px padding
 
-      this.textarea = WireIt.cn('textarea', null, {width: (this.bodyEl.clientWidth-20)+"px", height: (this.bodyEl.clientHeight-20)+"px"}, codeText);
-      this.setBody(this.textarea);
-
-      YAHOO.util.Event.addListener(this.textarea, 'change', this.createTerminals, this, true);
-      
+     totalWidth-= 14; // 2px border and 5px padding on the body el.
+     totalWidth-= 10; // The textArea willl have a 5 px padding
+     this.textarea = WireIt.cn('textarea', null, {width: totalWidth+"px", height: totalHeight+"px"}, codeText);
+     this.setBody(this.textarea);
+     YAHOO.util.Event.addListener(this.textarea, 'change', this.createTerminals, this, true);
    },
    
    /**

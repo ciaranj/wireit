@@ -44,8 +44,9 @@ modules[modules.length++] ={
 };
 
 modules[modules.length++] = {
-   "name": "jsBox",
-   "container": {"xtype": "sawire.jsRunner"}
+   "name": "Script",
+   "container": {"xtype": "sawire.jsRunner",
+                 "height": 140}
 };
 
 modules[modules.length++]={
